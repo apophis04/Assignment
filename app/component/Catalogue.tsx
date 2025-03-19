@@ -24,10 +24,22 @@ const catalogue =
 }]
 
 function Catalogue() {
+    function sortCatalogue() {
+        // Sort catalogue by price
+        catalogue.sort((a, b) => a.price - b.price); 
+    }
 
   return (
     <div>
         <h2>Catalogue</h2>
+        <div className="row">
+            <div className="sorting">
+                <select onChange={sortCatalogue}>
+                    <option value="price">Price</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+        </div>
         <div className="row">
             {catalogue.map((item, index) => (
             <div className="row-md-4" key={index}>
@@ -37,7 +49,6 @@ function Catalogue() {
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">{item.description}</p>
                     <p className="card-text">Price: {item.price}</p>
-                    <p className="card-text">Category: {item.category}</p>
                 </div>
                 </div>
             </div>
