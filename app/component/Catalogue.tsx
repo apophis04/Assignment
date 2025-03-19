@@ -7,28 +7,33 @@ const catalogue =
     description: 'Description 1',
     price: 100,
     category: 'Category 1',
+    rating: 4
   },
     {
     image: '/images.jpeg',
     title: 'Title 2',
     description: 'Description 2',
     price: 200,
-    category: 'Category 2'
+    category: 'Category 2',
+    rating: 3
 },
 {
     image: '/images.jpeg', 
     title: 'Title 3',   
     description: 'Description 3',
     price: 300,
-    category: 'Category 3'
+    category: 'Category 3',
+    rating: 5
 }]
 
-function Catalogue() {
-    function sortCatalogue() {
-        // Sort catalogue by price
-        catalogue.sort((a, b) => a.price - b.price); 
-    }
+var sortCatalogue = (e) => {
+  if (e.target.value === 'category') {
+    catalogue.sort((a, b) => a.category.localeCompare(b.category));
+  } else
+    catalogue.sort((a, b) => a.rating - b.rating); 
+}
 
+function Catalogue() {
   return (
     <div>
         <h2>Catalogue</h2>
